@@ -4,7 +4,7 @@ import msgpack
 import umsgpack
 
 
-def serve():
+def serve_echo():
     context = zmq.Context()
     socket = context.socket(zmq.ROUTER)
     socket.bind("tcp://*:5560")
@@ -20,4 +20,4 @@ def serve():
         socket.send_multipart([client_id, b"", response])
 
 
-gevent.spawn(serve).join()
+gevent.spawn(serve_echo).join()
