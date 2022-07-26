@@ -4,31 +4,21 @@ import msgpack
 import umsgpack
 
 
-def serve_echo():
+def serve():
     context = zmq.Context()
-    socket = context.socket(zmq.ROUTER)
-    socket.bind("tcp://*:5560")
+    socket = context.socket(zmq.DEALER)
+    socket.setsockopt(zmq.IDENTITY, b'SLOT12')
+    socket.connect("tcp://127.0.0.1:5560")
     while True:
-        client_id, dest_id, msg = socket.recv_multipart()
-        print("Received request: ", client_id, type(msg), msg)
+        client_id, msg = socket.recv_multipart()
+        #print("Received request: ", client_id, type(msg), msg)
         # a = umsgpack.unpackb(msg)
         a = msgpack.unpackb(msg)
-        print(dest_id, a)
+        # print(a)
         # gevent.sleep(0.3)
         response = msgpack.packb({"a": "ddddddddd\0", "b": 15})
-        print(response)
-        # socket.send_multipart([client_id, b"", response])
-        socket.send_multipart([client_id, b"", response])
+        # print(response)
+        socket.send_multipart([client_id, response])
 
 
-def serve_route():
-    context = zmq.Context()
-    socket = context.socket(zmq.ROUTER)
-    socket.bind("tcp://*:5560")
-    while True:
-        client_id, dest_id, msg = socket.recv_multipart()
-        print("recv:from {} to : {} : {}", client_id, dest_id, msg)
-        socket.send_multipart([dest_id, client_id, msg])
-
-
-gevent.spawn(serve_route).join()
+gevent.spawn(serve).join()
