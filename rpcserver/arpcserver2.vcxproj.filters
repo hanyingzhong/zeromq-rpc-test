@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\source\libzmq-4.3.4\libzmq-4.3.4\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0F6E84CC-05D3-3FC6-96F2-C3523D4C8A54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mpack">
+      <UniqueIdentifier>{d79e3d54-dce0-4e9e-b82d-3bd6b6209d9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\hash">
+      <UniqueIdentifier>{2e574940-b931-436d-a7c7-572d98500838}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rpcserver">
+      <UniqueIdentifier>{1f507101-eef3-47b5-ab5c-9ed59d179ed3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="mpack\mpack.c">
+      <Filter>Source Files\mpack</Filter>
+    </ClCompile>
+    <ClCompile Include="hash\rpc_hash.cpp">
+      <Filter>Source Files\hash</Filter>
+    </ClCompile>
+    <ClCompile Include="zmq_event_helper.cpp">
+      <Filter>Source Files\rpcserver</Filter>
+    </ClCompile>
+    <ClCompile Include="rpcserver.cpp">
+      <Filter>Source Files\rpcserver</Filter>
+    </ClCompile>
+    <ClCompile Include="rpc_application.cpp">
+      <Filter>Source Files\rpcserver</Filter>
+    </ClCompile>
+    <ClCompile Include="rpc_application_add.cpp">
+      <Filter>Source Files\rpcserver</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rpc_msg_comm.cpp">
+      <Filter>Source Files\rpcserver</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mpack\mpack.h">
+      <Filter>Source Files\mpack</Filter>
+    </ClInclude>
+    <ClInclude Include="hash\rpc_hash.h">
+      <Filter>Source Files\hash</Filter>
+    </ClInclude>
+    <ClInclude Include="hash\khash.h">
+      <Filter>Source Files\hash</Filter>
+    </ClInclude>
+    <ClInclude Include="rpcserver.h">
+      <Filter>Source Files\rpcserver</Filter>
+    </ClInclude>
+    <ClInclude Include="help.h">
+      <Filter>Source Files\rpcserver</Filter>
+    </ClInclude>
+    <ClInclude Include="wyhash.h">
+      <Filter>Source Files\hash</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
